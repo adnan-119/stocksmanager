@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react'; 
+import React, { useState,useEffect } from 'react'; 
 import{useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
  
-export default function RegistrationForm() { 
+export default function InsertUsers() { 
     const [formData, setFormData] = useState({ 
         name: '', 
         email:'',
@@ -29,7 +29,6 @@ export default function RegistrationForm() {
         }); 
     }; 
     
-    const navigate=useNavigate();
 
  
     const handleSubmit = async(e) => { 
@@ -43,7 +42,7 @@ export default function RegistrationForm() {
             setFormData({
                 name: '', 
                 email:'',
-                age: '',
+                age: '', 
                 contact: '', 
                 aadhar: '', 
                 panno: '', 
@@ -56,7 +55,7 @@ export default function RegistrationForm() {
           }
           setMessage(response.data);
           setError(''); //set error to ""
-          navigate('/login')
+         
         } 
         catch(error) 
         {
@@ -123,9 +122,6 @@ export default function RegistrationForm() {
                 {
                     message ? <h4 align="center" style={{fontSize:"30px",color:"white"}}>{message}</h4> : <h4 align="center">{error}</h4>
                 }
-            </div> 
-            <div className="form-group"> 
-                <a href="#" className="help-link">Help</a> 
             </div> 
             </div> 
         

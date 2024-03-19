@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './NavBar';
+// import NavBarAdmin from './NavBarAdmin';
 
 import { BrowserRouter as Browser } from 'react-router-dom';
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Browser>
         <NavBar/>
+        {/* <NavBarAdmin/> */}
       </Browser>
     </div>
   );

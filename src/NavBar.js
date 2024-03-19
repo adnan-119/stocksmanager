@@ -19,12 +19,12 @@ export default function NavBar() {
         </ul>
         
         <ul>
-            <li style={{marginLeft:"600px"}}><Link to='/home'>Home</Link></li>
+            <li style={{marginLeft:"50px"}}><Link to='/home'>Home</Link></li>
             <li><Link to='/portfolio'>Portfolio</Link></li>
             <li><Link to='/transactions'>Transactions</Link></li>
             <li><Link to='/profile'>Profile</Link></li>
             <li><Link to='/help'>Help</Link></li>
-            <li style={{marginLeft:"500px"}}><Link to='/login'>Log Out</Link></li>
+            
         </ul>
         <div className='hr'>
           <hr/>

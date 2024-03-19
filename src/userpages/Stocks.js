@@ -2,24 +2,63 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function Stocks() {
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
     const [data, setData] = useState({ top_gainers: [], stocks_in_loss: [], most_bought: [] });
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get("https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo");
-                console.log(response.data);
-                setData({
-                    top_gainers: response.data.top_gainers || [],
-                    stocks_in_loss: response.data.top_losers || [],
-                    most_bought: response.data.most_actively_traded || []
-                });
-            } catch (err) {
-                console.log(err.message);
-            }
+    const [stock, setstock] = useState(
+        {
+            ticker: '',
+            price: '',
+            change_amount: '',
+            change_percentage: '',
+            volume: ''
+        }
+    );
+    async function fetchData() {
+        try {
+            const response = await axios.get("https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo");
+            console.log(response.data);
+            setData({
+                top_gainers: response.data.top_gainers || [],
+                stocks_in_loss: response.data.top_losers || [],
+                most_bought: response.data.most_actively_traded || []
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+    async function buystock(stock){
+        console.log("Buying Stock");
+        
+        try 
+        {
+          const response = await axios.post('http://localhost:2123/storemystock', stock);
+          if (response.status === 200) 
+          {
+            //It will set all fields to ""
+            setstock({
+                ticker: '',
+                price: '',
+                change_amount: '',
+                change_percentage: '',
+                volume: ''
+            });
+          }
+          setMessage(response.data);
+          setError(''); //set error to ""
+          
+        } 
+        catch(error) 
+        {
+          setError(error.response.data);
+          setMessage(''); //set message to ""
         }
 
+
+    }
+    useEffect(() => {
         fetchData();
+        
     }, []);
 
     return (
@@ -49,7 +88,7 @@ export default function Stocks() {
                                 </div>
                                 
                                 <div className="button-container">
-                                    <button className="BuySmallButton">Buy</button>
+                                    <button className="BuySmallButton" onClick={buystock}>Buy</button>
                                     <button className="SellSmallButton">Sell</button>
                                 </div>
                             </div>

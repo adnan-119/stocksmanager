@@ -99,14 +99,16 @@ table{
 form{ 
     background-color: rgba(0, 131, 253, 0); 
     color:white; 
-    margin: 0 auto; 
+    margin: auto; 
     width: 350px; 
     padding: 40px ; 
     border-radius: 1em; 
     border-color:rgba(24, 122, 214, 0.733); 
     border-style:solid; 
     text-align: center; 
-    height: 170px;
+    height: 250px;
+    
+    margin-bottom:160px;
     
 } 
 .Home{ 
@@ -252,32 +254,27 @@ align-items: center;
   height: auto; 
 } 
 
-  .button {  
-    background-color:rgb(5, 134, 189);
-    border: none;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left:20px;
-    transition: padding-left 0.3s,padding-right 0.3s, background-color 0.3s;
-  }
+.button {  
+  background-color: rgb(5, 134, 189);
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+  transition: padding-left 0.3s, padding-right 0.3s, background-color 0.3s, transform 0.3s; /* Add transition for transform */
+}
 
- 
-.button:hover{ 
-  background-color: rgb(9, 194, 194); 
-  color: white; 
-  padding-left:40px; 
-  padding-right:40px; 
-  padding-top:12px; 
-  padding-bottom:12px; 
-   
-} 
+.button:hover { 
+  background-color: rgb(9, 194, 194);
+  padding: 12px 34px; /* Increase padding to compensate for increased size */
+  transform: scale(1.1); /* Scale button up by 10% */
+}
 
 .button-container
 { 
@@ -440,6 +437,7 @@ td{
 .insideboxesbutton{
   background-color: rgba(0, 102, 128, 0.466); 
     border: none; 
+    
     color: rgb(255, 255, 255); 
     text-align: center; 
     text-decoration: none; 

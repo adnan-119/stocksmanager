@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MyStocksdata from './data/trendingstocks.json';
 import graphdata from './data/graph.json';
 import { Line } from "react-chartjs-2";
-import { ChartasChartJS } from 'chart.js/auto';
+import  'chart.js/auto';
 
 export default function Portfolio() {
   const [count, setCount] = useState(0);
@@ -17,6 +17,7 @@ export default function Portfolio() {
       },
     ],
   });
+  
 
   const options = {
     scales: {
@@ -37,8 +38,9 @@ export default function Portfolio() {
     let sum = 0;
     MyStocks.map((stock) => {
       sum += parseFloat(stock.current_price);
+      return sum;
     });
-    let sumofreturn
+    
     setCount(sum);
     setMyStocks(MyStocksdata);
     // Update only the datasets property, keep labels intact
@@ -68,7 +70,7 @@ export default function Portfolio() {
                   {
                   (Mystock.change_percent>0)?
                   <i className="font-insideboxes" style={{color:"rgb(81, 201, 81)"}}>&nbsp;&nbsp; {`${Mystock.change_percent}%`}</i>:
-                      <i className="font-insideboxes" style={{color:" rgb(255, 0, 0)"}}>&nbsp;&nbsp; {`${Mystock.change_percent}%`}</i>
+                  <i className="font-insideboxes" style={{color:" rgb(255, 0, 0)"}}>&nbsp;&nbsp; {`${Mystock.change_percent}%`}</i>
                   }
                   
                   <i className="font-insideboxes">&nbsp;&nbsp; {Mystock.sector}</i>
@@ -94,11 +96,11 @@ export default function Portfolio() {
           <div className="outsideboxinvestments"  style={{alignItems:"center"}}>
             
             <div style={{marginRight:"10px",alignItems:"center"}} >
-            <a style={{color:"white",marginLeft:"45px",fontFamily:"Verdana, Geneva, Tahoma, sans-serif",fontSize:"20px"}}>Invested</a>
+            <b style={{color:"white",marginLeft:"45px",fontFamily:"Verdana, Geneva, Tahoma, sans-serif",fontSize:"20px"}}>Invested</b>
             <h1 style={{color:"white",marginLeft:"45px"}}>{`$1907.63`}</h1>
             </div>
             <div>
-              <a style={{color:"white",marginLeft:"45px",fontFamily:"Verdana, Geneva, Tahoma, sans-serif",fontSize:"20px"}}>Current Value</a>
+              <b style={{color:"white",marginLeft:"45px",fontFamily:"Verdana, Geneva, Tahoma, sans-serif",fontSize:"20px"}}>Current Value</b>
               <h1 style={{color:"white",marginLeft:"65px"}}>{` $${count.toFixed(2)}`}</h1>
              </div>
           </div>

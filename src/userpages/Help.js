@@ -15,28 +15,28 @@ export default function AboutUs() {
       image: adnan,
       description: 'Student at KL University',
       email: '2200090035@kluniversity.in',
-      address: '123 Main Street, City, Country',
+      address: 'Near Ambica Theatre, westren street,eluru, Andhra Pradesh, 534001',
       department: 'Management of all departments'
     },
     {
       id: 2200090165,
       name: 'Bhaviri Somsekhar',
-      position: 'Front End developer',
+      position: 'Backend Developer',
       image: somsekhar,
       description: 'Student at KL University',
       email: '2200090165@kluniversity.in',
       address: 'near vaddeswaram, Guntur, Andhra Pradesh',
-      department: 'Designing front end'
+      department: 'Development of Backend '
     },
     {
       id: 2200090158,
       name: 'Tassadaq Hussain',
-      position: 'Backend Developer',
+      position: ' Front End developer',
       image: hussain,
       description: 'Student at KL University',
       email: '2200090158@kluniversity.iin',
-      address: '789 Elm Street, City, Country, bokku gadu',
-      department: 'Development of Backend '
+      address: 'Machavaram, Vijayawada, Andhra Pradesh 520004 ',
+      department: 'Designing front end '
     }
   ];
 
